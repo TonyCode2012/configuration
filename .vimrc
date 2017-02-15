@@ -1,11 +1,19 @@
 let mapleader=";"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 filetype on
 filetype plugin on
 
 set backspace=2
 
+<<<<<<< HEAD
 " basic operation
+=======
+" basic operatio
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 nmap LB 0
 nmap LE $
 vnoremap <Leader>y "+y
@@ -26,6 +34,7 @@ nmap <Leader>M %
 nnoremap <Leader>j <C-f>
 nnoremap <Leader>k <C-b>
 " auto complete mirror symbol
+<<<<<<< HEAD
 ":inoremap ) ()<Esc>i        
 ":inoremap ( ()<Esc>i
 ":inoremap { {}<Esc>i
@@ -36,21 +45,36 @@ nnoremap <Leader>k <C-b>
 ":inoremap > <><Esc>i
 ":inoremap " ""<Esc>i
 ":inoremap ' ''<Esc>i
+=======
+"inoremap ( ()<ESC>i
+"inoremap [ []<ESC>i
+"inoremap { {}<ESC>i
+"inoremap < <><ESC>i
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 " auto reload directory
 "set autoread
 " enable mouse
 set mouse=a
+<<<<<<< HEAD
+=======
+" search
+nnoremap <Leader>sh * 
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 " jump among files
 nnoremap <Leader>P :e#<CR>
 
 " auto command
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
+<<<<<<< HEAD
 " In this part we open the indicated file's directory in nerdtree window
 " instead of the current dir.But if there is no indicated file, we'll open
 " the current dir.
 autocmd VimEnter * NERDTree %:p:h
 wincmd w
 autocmd VimEnter * wincmd w
+=======
+autocmd VimEnter * NERDTree
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 "autocmd VimEnter * Autoread 1
 
 filetype off
@@ -67,7 +91,10 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'kshenoy/vim-signature'
 Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
+<<<<<<< HEAD
 "Plugin 'MattesGroeger/vim-bookmarks'
+=======
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/indexer.tar.gz'
 Plugin 'vim-scripts/DfrankUtil'
@@ -94,6 +121,7 @@ Plugin 'vim-scripts/ag.vim'
 call vundle#end()
 filetype plugin indent on
 
+<<<<<<< HEAD
 """ multiple cursor configuration
 " deal with multiple cursor conflict
 let g:multi_cursor_use_default_mapping=0 
@@ -104,6 +132,8 @@ let g:multi_cursor_skip_key='<M-k>'
 let g:multi_cursor_quit_key='<Esc>'
 
 
+=======
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 " jump betwwn .h and .c files
 "nnoremap <Leader>h :A<CR>
 
@@ -112,7 +142,11 @@ set ignorecase
 set nocompatible
 set wildmenu
 
+<<<<<<< HEAD
 """ nerdtree configuration
+=======
+"nerdtree option
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 nnoremap <Leader>o :NERDTreeToggle<CR>
 " hide/show MiniBufExploer
 map <Leader>bl :MBEToggle<cr>
@@ -122,7 +156,11 @@ map <Leader>bl :MBEToggle<cr>
 
 "set fileencodings=utf-8,ucs-bom,cp936,gbk,gb2312,big5,latin1
 
+<<<<<<< HEAD
 """ set color
+=======
+" set color
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 set t_Co=256
 set background=dark
 "colorscheme solarized
@@ -132,6 +170,7 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 "let g:gruvbox_hls_cursor='aqua'
 
+<<<<<<< HEAD
 """ signature configuration
 let g:SignatureMap = {
         \ 'Leader'             :  "m",
@@ -158,6 +197,9 @@ let g:SignatureMap = {
         \ }
 
 """ focus on edition
+=======
+" focus on edition
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 set gcr=a:block-blinkon0
 set guioptions-=l
 set guioptions-=L
@@ -186,7 +228,10 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
+<<<<<<< HEAD
 """ indent configuration
+=======
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
@@ -201,12 +246,28 @@ nmap <silent> <Leader>sw :FSHere<cr>
 
 " use ctrlsf.vim to search key words in project
 "set runtimepath^=~/.vim/bundle/ag.vim
+<<<<<<< HEAD
 " search
 let g:ctrlsf_ackprg='ag'
 nnoremap <Leader>sh * 
 nnoremap <Leader>sp :CtrlSF<CR>
 nnoremap <Leader>ss :Ag <cword> '%:p:h'<CR>
 
+=======
+let g:ctrlsf_ackprg='ag'
+nnoremap <Leader>sp :CtrlSF<CR>
+nnoremap <Leader>ss :Ag <cword> '%:p:h'<CR>
+
+" syntax definition and declaration jump
+nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
+
+" quick replacement
+let g:multi_cursor_next_key='<S-n>'
+let g:multi_cursor_prev_key='<S-p>'
+let g:multi_cursor_skip_key='<S-k>'
+
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 function! Replace(confirm, wholeword, replace)
     wa
     let flag = ''
@@ -230,11 +291,15 @@ nnoremap <Leader>rc :call Replace(1, 0, input('Replace '.expand('<cword>').'with
 nnoremap <Leader>rcw :call Replace(1, 1, input('Replace '.expand('<cword>').'with: '))<CR>
 nnoremap <Leader>rwc :call Replace(1, 1, input('Replace '.expand('<cword>').'with: '))<CR>
 
+<<<<<<< HEAD
 """ YCM configuration
 " syntax definition and declaration jump
 nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
 " completition windown configuration
+=======
+" YCM add complete
+>>>>>>> 7cb26cf91361ac217f94e03a5e748c82aaae14b5
 highlight Pmenu ctermfg=2 ctermbg=White guifg=#005f87 guibg=#EEE8D5
 highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
 let g:ycm_complete_in_comments=1
