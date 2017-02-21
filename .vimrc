@@ -4,6 +4,7 @@ filetype on
 filetype plugin on
 
 set backspace=2
+set encoding=utf-8
 
 " basic operation
 nmap LB 0
