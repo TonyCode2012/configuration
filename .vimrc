@@ -4,11 +4,8 @@ filetype on
 filetype plugin on
 
 set backspace=2
-set encoding=utf-8
 
-" basic operation
-nmap LB 0
-nmap LE $
+""" basic operation
 vnoremap <Leader>y "+y
 inoremap <Leader>e <Esc>
 nmap <Leader>p "+p
@@ -23,9 +20,18 @@ nnoremap <Leader>a <C-W>h
 nnoremap <Leader>s <C-W>k
 nnoremap <Leader>d <C-W>j
 nmap <Leader>M %
+nnoremap <Leader>h 0
+nnoremap <Leader>l $
 " paging
 nnoremap <Leader>j <C-f>
 nnoremap <Leader>k <C-b>
+" add "" '' () {} [] <> at selected word in normal mode
+nnoremap <Leader>" viw<esc>a"<esc>hbi"<esc>lel
+nnoremap <Leader>' viw<esc>a'<esc>hbi'<esc>lel
+nnoremap <Leader>( viw<esc>a)<esc>hbi(<esc>lel
+nnoremap <Leader>{ viw<esc>a}<esc>hbi{<esc>lel
+nnoremap <Leader>[ viw<esc>a]<esc>hbi[<esc>lel
+nnoremap <Leader>< viw<esc>a><esc>hbi<<esc>lel
 " auto complete mirror symbol
 ":inoremap ) ()<Esc>i        
 ":inoremap ( ()<Esc>i
@@ -43,6 +49,17 @@ nnoremap <Leader>k <C-b>
 set mouse=a
 " jump among files
 nnoremap <Leader>P :e#<CR>
+" delete in insert mode
+inoremap <Leader>dd <esc>ddi
+" paste in insert mode
+inoremap <Leader>pp <esc>pi
+" add "" '' () {} [] <> at selected word in insert mode
+inoremap <Leader>"" <esc>viw<esc>a"<esc>hbi"<esc>lela 
+inoremap <Leader>'' <esc>viw<esc>a'<esc>hbi'<esc>lela 
+inoremap <Leader>(( <esc>viw<esc>a)<esc>hbi(<esc>lela 
+inoremap <Leader>{{ <esc>viw<esc>a}<esc>hbi{<esc>lela 
+inoremap <Leader>[[ <esc>viw<esc>a]<esc>hbi[<esc>lela 
+inoremap <Leader><< <esc>viw<esc>a><esc>hbi<<esc>lela 
 
 " auto command
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
@@ -89,7 +106,7 @@ Plugin 'gcmt/wildfire.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'suan/vim-instant-markdown'
-Plugin 'lilydjwg/fcitx.vim'
+"Plugin 'lilydjwg/fcitx.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/ag.vim'
 call vundle#end()
