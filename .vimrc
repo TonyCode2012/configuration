@@ -62,14 +62,19 @@ inoremap <Leader>[[ <esc>viw<esc>a]<esc>hbi[<esc>lela
 inoremap <Leader><< <esc>viw<esc>a><esc>hbi<<esc>lela 
 
 " auto command
-autocmd BufWritePost ~/.vimrc source ~/.vimrc
+augroup freshvimrc
+    autocmd!
+    autocmd BufWritePost ~/.vimrc source ~/.vimrc
+augroup END
 " In this part we open the indicated file's directory in nerdtree window
 " instead of the current dir.But if there is no indicated file, we'll open
 " the current dir.
-autocmd VimEnter * NERDTree %:p:h
-wincmd w
-autocmd VimEnter * wincmd w
-"autocmd VimEnter * Autoread 1
+augroup entervim
+    autocmd!
+    autocmd VimEnter * NERDTree %:p:h
+    autocmd VimEnter * wincmd w
+    autocmd VimEnter * Autoread 3
+augroup END
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
