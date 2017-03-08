@@ -74,7 +74,9 @@ augroup entervim
     autocmd!
     autocmd VimEnter * NERDTree %:p:h
     autocmd VimEnter * wincmd w
-    autocmd VimEnter * Autoread 3
+    autocmd VimEnter * TlistToggle
+    autocmd FileWritePost * TlistUpdate
+    "autocmd BufRead * Autoread 3
 augroup END
 
 filetype off
@@ -115,8 +117,17 @@ Plugin 'suan/vim-instant-markdown'
 "Plugin 'lilydjwg/fcitx.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/ag.vim'
+Plugin 'vim-scripts/taglist.vim'
 call vundle#end()
 filetype plugin indent on
+
+""" configure taglist
+nnoremap <Leader>t :TlistToggle<CR>
+let g:Tlist_Use_Right_Window=1
+let g:Tlist_Show_One_File=1
+let g:Tlist_Sort_Type='name'
+let g:Tlist_Display_Prototype=1
+let g:Tlist_Exit_OnlyWindow=1
 
 """ multiple cursor configuration
 " deal with multiple cursor conflict
