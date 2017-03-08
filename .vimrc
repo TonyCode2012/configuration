@@ -75,6 +75,7 @@ augroup entervim
     autocmd VimEnter * NERDTree %:p:h
     autocmd VimEnter * wincmd w
     autocmd VimEnter * TlistToggle
+    "autocmd VimEnter * call AccentDemo()
     autocmd FileWritePost * TlistUpdate
     "autocmd BufRead * Autoread 3
 augroup END
@@ -118,8 +119,15 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/ag.vim'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'will133/vim-dirdiff'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin indent on
+
+""" configure vim airline
+let g:airline_theme='molokai'
 
 """ configure taglist
 nnoremap <Leader>t :TlistToggle<CR>
@@ -284,3 +292,19 @@ let g:ycm_seed_identifiers_with_syntax=1
 " use OmniCppComplete function 
 let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"]
 set tags+=/ws/yaoz/tools/stdcpp.tags
+
+"function! AccentDemo()
+"    let keys = ['a','b','c','d','e','f','g','h']
+"    for k in keys
+"        call airline#parts#define_text(k, k)
+"    endfor
+"    call airline#parts#define_accent('a', 'red')
+"    call airline#parts#define_accent('b', 'green')
+"    call airline#parts#define_accent('c', 'blue')
+"    call airline#parts#define_accent('d', 'yellow')
+"    call airline#parts#define_accent('e', 'orange')
+"    call airline#parts#define_accent('f', 'purple')
+"    call airline#parts#define_accent('g', 'bold')
+"    call airline#parts#define_accent('h', 'italic')
+"    let g:airline_section_a = airline#section#create(keys)
+"endfunction
