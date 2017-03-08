@@ -4,7 +4,6 @@ filetype on
 filetype plugin on
 
 set backspace=2
-set encoding=utf-8
 
 """ basic operation
 vnoremap <Leader>y "+y
@@ -74,10 +73,7 @@ augroup entervim
     autocmd!
     autocmd VimEnter * NERDTree %:p:h
     autocmd VimEnter * wincmd w
-    autocmd VimEnter * TlistToggle
-    "autocmd VimEnter * call AccentDemo()
-    autocmd FileWritePost * TlistUpdate
-    "autocmd BufRead * Autoread 3
+    autocmd VimEnter * Autoread 3
 augroup END
 
 filetype off
@@ -118,24 +114,8 @@ Plugin 'suan/vim-instant-markdown'
 "Plugin 'lilydjwg/fcitx.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/ag.vim'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'will133/vim-dirdiff'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin indent on
-
-""" configure vim airline
-let g:airline_theme='molokai'
-
-""" configure taglist
-nnoremap <Leader>t :TlistToggle<CR>
-let g:Tlist_Use_Right_Window=1
-let g:Tlist_Show_One_File=1
-let g:Tlist_Sort_Type='name'
-let g:Tlist_Display_Prototype=1
-let g:Tlist_Exit_OnlyWindow=1
 
 """ multiple cursor configuration
 " deal with multiple cursor conflict
@@ -292,19 +272,3 @@ let g:ycm_seed_identifiers_with_syntax=1
 " use OmniCppComplete function 
 let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"]
 set tags+=/ws/yaoz/tools/stdcpp.tags
-
-"function! AccentDemo()
-"    let keys = ['a','b','c','d','e','f','g','h']
-"    for k in keys
-"        call airline#parts#define_text(k, k)
-"    endfor
-"    call airline#parts#define_accent('a', 'red')
-"    call airline#parts#define_accent('b', 'green')
-"    call airline#parts#define_accent('c', 'blue')
-"    call airline#parts#define_accent('d', 'yellow')
-"    call airline#parts#define_accent('e', 'orange')
-"    call airline#parts#define_accent('f', 'purple')
-"    call airline#parts#define_accent('g', 'bold')
-"    call airline#parts#define_accent('h', 'italic')
-"    let g:airline_section_a = airline#section#create(keys)
-"endfunction
