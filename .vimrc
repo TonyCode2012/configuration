@@ -8,6 +8,7 @@ set encoding=utf-8
 
 """ basic operation
 vnoremap <Leader>y "+y
+vnoremap <Leader>e <Esc>
 inoremap <Leader>e <Esc>
 nmap <Leader>p "+p
 nmap <Leader>q :q<CR>
@@ -63,18 +64,18 @@ inoremap <Leader>[[ <esc>viw<esc>a]<esc>hbi[<esc>lela
 inoremap <Leader><< <esc>viw<esc>a><esc>hbi<<esc>lela 
 
 " auto command
-augroup freshvimrc
+augroup FreshVimrc
     autocmd!
     autocmd BufWritePost ~/.vimrc source ~/.vimrc
 augroup END
 " In this part we open the indicated file's directory in nerdtree window
 " instead of the current dir.But if there is no indicated file, we'll open
 " the current dir.
-augroup entervim
+augroup EnterVim
     autocmd!
     autocmd VimEnter * NERDTree %:p:h
     autocmd VimEnter * wincmd w
-    autocmd VimEnter * TlistToggle
+    "autocmd VimEnter * TlistToggle
     "autocmd VimEnter * call AccentDemo()
     autocmd FileWritePost * TlistUpdate
     "autocmd BufRead * Autoread 3
