@@ -123,6 +123,7 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'will133/vim-dirdiff'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
 "Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin indent on
