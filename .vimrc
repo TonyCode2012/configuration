@@ -266,6 +266,7 @@ nmap <silent> <Leader>sw :FSHere<cr>
 " search
 let g:ctrlsf_ackprg='ag'
 nnoremap <Leader>sh * 
+nnoremap <Leader>sj :execute "/".expand("<cWORD>")<CR> 
 nnoremap <Leader>sp :CtrlSF<CR>
 nnoremap <Leader>ss :Ag <cword> '%:p:h'<CR>
 
