@@ -57,28 +57,17 @@ nnoremap <Leader>{ viw<esc>a}<esc>hbi{<esc>lel
 nnoremap <Leader>[ viw<esc>a]<esc>hbi[<esc>lel
 nnoremap <Leader>< viw<esc>a><esc>hbi<<esc>lel
 " add "" '' () {} [] <> at selected word in insert mode
-inoremap <Leader>"" <esc>viw<esc>a"<esc>hbi"<esc>lela 
-inoremap <Leader>'' <esc>viw<esc>a'<esc>hbi'<esc>lela 
-inoremap <Leader>(( <esc>viw<esc>a)<esc>hbi(<esc>lela 
-inoremap <Leader>{{ <esc>viw<esc>a}<esc>hbi{<esc>lela 
-inoremap <Leader>[[ <esc>viw<esc>a]<esc>hbi[<esc>lela 
-inoremap <Leader><< <esc>viw<esc>a><esc>hbi<<esc>lela 
+inoremap <Leader>" <esc>viw<esc>a"<esc>hbi"<esc>lela 
+inoremap <Leader>' <esc>viw<esc>a'<esc>hbi'<esc>lela 
+inoremap <Leader>( <esc>viw<esc>a)<esc>hbi(<esc>lela 
+inoremap <Leader>{ <esc>viw<esc>a}<esc>hbi{<esc>lela 
+inoremap <Leader>[ <esc>viw<esc>a]<esc>hbi[<esc>lela 
+inoremap <Leader>< <esc>viw<esc>a><esc>hbi<<esc>lela 
 " resize window
 nnoremap < :vertical resize +3<cr>
 nnoremap > :vertical resize -3<cr>
 nnoremap + :resize +3<cr>
 nnoremap _ :resize -3<cr>
-" auto complete mirror symbol
-":inoremap ) ()<Esc>i        
-":inoremap ( ()<Esc>i
-":inoremap { {}<Esc>i
-":inoremap } {}<Esc>i
-":inoremap [ []<Esc>i
-":inoremap ] []<Esc>i
-":inoremap < <><Esc>i
-":inoremap > <><Esc>i
-":inoremap " ""<Esc>i
-":inoremap ' ''<Esc>i
 " auto reload directory
 "set autoread
 " enable mouse
@@ -266,9 +255,9 @@ nmap <silent> <Leader>sw :FSHere<cr>
 " search
 let g:ctrlsf_ackprg='ag'
 nnoremap <Leader>sh * 
-nnoremap <Leader>sj :execute "/".expand("<cWORD>")<CR> 
+nnoremap <Leader>su :execute "/".expand("<cWORD>")<CR> 
 nnoremap <Leader>sp :CtrlSF<CR>
-nnoremap <Leader>ss :Ag <cword> '%:p:h'<CR>
+nnoremap <Leader>ss :Ag! <cword> '%:p:h'<CR>
 
 function! Replace(confirm, wholeword, replace)
     wa
