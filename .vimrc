@@ -4,7 +4,6 @@ filetype on
 filetype plugin on
 
 set backspace=2
-set encoding=utf-8
 
 "focus on edition{{{
 set gcr=a:block-blinkon0
@@ -155,17 +154,6 @@ filetype plugin indent on
 """ configure fugitive
 nnoremap <Leader>gsd :Gsdiff<CR>
 nnoremap <Leader>gvd :Gvdiff<CR>
-
-""" configure vim airline
-let g:airline_theme='molokai'
-
-""" configure taglist
-nnoremap <Leader>t :TlistToggle<CR>
-let g:Tlist_Use_Right_Window=1
-let g:Tlist_Show_One_File=1
-let g:Tlist_Sort_Type='name'
-let g:Tlist_Display_Prototype=1
-let g:Tlist_Exit_OnlyWindow=1
 
 """ multiple cursor configuration
 " deal with multiple cursor conflict
