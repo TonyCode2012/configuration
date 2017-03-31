@@ -6,7 +6,7 @@ filetype plugin on
 set backspace=2
 set encoding=utf-8
 
-""" focus on edition
+"focus on edition{{{
 set gcr=a:block-blinkon0
 set guioptions-=l
 set guioptions-=L
@@ -26,8 +26,9 @@ set incsearch
 set ignorecase
 set nocompatible
 set wildmenu
+"}}} focus end
 
-""" basic operation
+"basic operation{{{
 vnoremap <Leader>y "+y
 vnoremap <Leader>e <Esc>
 inoremap <Leader>e <Esc>
@@ -55,17 +56,18 @@ nnoremap <Leader>( viw<esc>a)<esc>hbi(<esc>lel
 nnoremap <Leader>{ viw<esc>a}<esc>hbi{<esc>lel
 nnoremap <Leader>[ viw<esc>a]<esc>hbi[<esc>lel
 nnoremap <Leader>< viw<esc>a><esc>hbi<<esc>lel
-" auto complete mirror symbol
-":inoremap ) ()<Esc>i        
-":inoremap ( ()<Esc>i
-":inoremap { {}<Esc>i
-":inoremap } {}<Esc>i
-":inoremap [ []<Esc>i
-":inoremap ] []<Esc>i
-":inoremap < <><Esc>i
-":inoremap > <><Esc>i
-":inoremap " ""<Esc>i
-":inoremap ' ''<Esc>i
+" add "" '' () {} [] <> at selected word in insert mode
+inoremap <Leader>" <esc>viw<esc>a"<esc>hbi"<esc>lela 
+inoremap <Leader>' <esc>viw<esc>a'<esc>hbi'<esc>lela 
+inoremap <Leader>( <esc>viw<esc>a)<esc>hbi(<esc>lela 
+inoremap <Leader>{ <esc>viw<esc>a}<esc>hbi{<esc>lela 
+inoremap <Leader>[ <esc>viw<esc>a]<esc>hbi[<esc>lela 
+inoremap <Leader>< <esc>viw<esc>a><esc>hbi<<esc>lela 
+" resize window
+nnoremap < :vertical resize +3<cr>
+nnoremap > :vertical resize -3<cr>
+nnoremap + :resize +3<cr>
+nnoremap _ :resize -3<cr>
 " auto reload directory
 "set autoread
 " enable mouse
@@ -76,15 +78,9 @@ nnoremap <Leader>P :e#<CR>
 inoremap <Leader>dd <esc>ddi
 " paste in insert mode
 inoremap <Leader>pp <esc>pi
-" add "" '' () {} [] <> at selected word in insert mode
-inoremap <Leader>"" <esc>viw<esc>a"<esc>hbi"<esc>lela 
-inoremap <Leader>'' <esc>viw<esc>a'<esc>hbi'<esc>lela 
-inoremap <Leader>(( <esc>viw<esc>a)<esc>hbi(<esc>lela 
-inoremap <Leader>{{ <esc>viw<esc>a}<esc>hbi{<esc>lela 
-inoremap <Leader>[[ <esc>viw<esc>a]<esc>hbi[<esc>lela 
-inoremap <Leader><< <esc>viw<esc>a><esc>hbi<<esc>lela 
+"}}}basic end
 
-" auto command
+"auto command{{{
 augroup FreshVimrc
     autocmd!
     autocmd BufWritePost ~/.vimrc source ~/.vimrc
@@ -103,7 +99,9 @@ augroup EnterVim
     autocmd VimLeave * :!cp ~/.vimrc ~/.vimrc.bak
     autocmd VimLeave * :!rm -rf ~/.vimrc
 augroup END
+"}}}auto command end
 
+"plugin install{{{
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -133,8 +131,7 @@ Plugin 'vim-scripts/DrawIt'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'derekwyatt/vim-protodef'
-"Plugin 'scrooloose/nerdtree'
-Plugin 'TonyCode2012/nerdtree'
+Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'sjl/gundo.vim'
@@ -148,10 +145,13 @@ Plugin 'will133/vim-dirdiff'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin indent on
+"}}}plugin install end
 
+"plugin configuration{{{
 """ configure fugitive
 nnoremap <Leader>gsd :Gsdiff<CR>
 nnoremap <Leader>gvd :Gvdiff<CR>
@@ -255,9 +255,9 @@ nmap <silent> <Leader>sw :FSHere<cr>
 " search
 let g:ctrlsf_ackprg='ag'
 nnoremap <Leader>sh * 
-nnoremap <Leader>sj :execute "/".expand("<cWORD>")<CR> 
+nnoremap <Leader>su :execute "/".expand("<cWORD>")<CR> 
 nnoremap <Leader>sp :CtrlSF<CR>
-nnoremap <Leader>ss :Ag <cword> '%:p:h'<CR>
+nnoremap <Leader>ss :Ag! <cword> '%:p:h'<CR>
 
 function! Replace(confirm, wholeword, replace)
     wa
@@ -301,6 +301,8 @@ let g:ycm_seed_identifiers_with_syntax=1
 " use OmniCppComplete function 
 let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"]
 set tags+=/ws/yaoz/tools/stdcpp.tags
+
+"}}}plugin configuration end
 
 "function! AccentDemo()
 "    let keys = ['a','b','c','d','e','f','g','h']
