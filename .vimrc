@@ -32,6 +32,7 @@ set wildmenu
 vnoremap <Leader>y "+y
 vnoremap <Leader>e <Esc>
 inoremap <Leader>e <Esc>
+inoremap <Leader>w <Esc>:w<CR>
 nmap <Leader>p "+p
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
