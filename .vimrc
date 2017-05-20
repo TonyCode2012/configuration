@@ -64,6 +64,13 @@ inoremap <Leader>( <esc>viw<esc>a)<esc>hbi(<esc>lela
 inoremap <Leader>{ <esc>viw<esc>a}<esc>hbi{<esc>lela 
 inoremap <Leader>[ <esc>viw<esc>a]<esc>hbi[<esc>lela 
 inoremap <Leader>< <esc>viw<esc>a><esc>hbi<<esc>lela 
+" add "" '' () {} [] <> at selected word without <Leader>
+inoremap " ""<esc>i
+inoremap ' ''<esc>i 
+inoremap ( ()<esc>i
+inoremap { {}<esc>i
+inoremap [ []<esc>i
+inoremap < <><esc>i
 " resize window
 nnoremap < :vertical resize +3<cr>
 nnoremap > :vertical resize -3<cr>
@@ -260,7 +267,6 @@ nnoremap <Leader>sh *
 nnoremap <Leader>su :execute "/".expand("<cWORD>")<CR> 
 nnoremap <Leader>sp :CtrlSF<CR>
 nnoremap <Leader>ss :Ag! <cword> '%:p:h'<CR>
-
 function! Replace(confirm, wholeword, replace)
     wa
     let flag = ''
