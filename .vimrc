@@ -91,7 +91,7 @@ inoremap <Leader>pp <esc>pi
 "auto command{{{
 augroup FreshVimrc
     autocmd!
-    autocmd BufWritePost ~/.vimrc source ~/.vimrc
+    autocmd BufWritePost ~/.zvimrc source ~/.zvimrc
 augroup END
 " In this part we open the indicated file's directory in nerdtree window
 " instead of the current dir.But if there is no indicated file, we'll open
@@ -104,8 +104,8 @@ augroup EnterVim
     "autocmd VimEnter * call AccentDemo()
     autocmd FileWritePost * TlistUpdate
     "autocmd BufRead * Autoread 3
-    autocmd VimLeave * :!cp ~/.vimrc ~/.vimrc.bak
-    autocmd VimLeave * :!rm -rf ~/.vimrc
+    "autocmd VimLeave * :!cp ~/.vimrc ~/.vimrc.bak
+    "autocmd VimLeave * :!rm -rf ~/.vimrc
 augroup END
 "}}}auto command end
 
