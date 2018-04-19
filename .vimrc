@@ -52,6 +52,7 @@ nnoremap <Leader>k <C-b>
 " add "" '' () {} [] <> at selected word in normal mode
 nnoremap <Leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <Leader>' viw<esc>a'<esc>hbi'<esc>lel
+nnoremap <Leader>` viw<esc>a><esc>hbi<<esc>lel
 nnoremap <Leader>( viw<esc>a)<esc>hbi(<esc>lel
 nnoremap <Leader>{ viw<esc>a}<esc>hbi{<esc>lel
 nnoremap <Leader>[ viw<esc>a]<esc>hbi[<esc>lel
@@ -59,6 +60,7 @@ nnoremap <Leader>< viw<esc>a><esc>hbi<<esc>lel
 " add "" '' () {} [] <> at selected word in insert mode
 inoremap <Leader>" <esc>viw<esc>a"<esc>hbi"<esc>lela 
 inoremap <Leader>' <esc>viw<esc>a'<esc>hbi'<esc>lela 
+inoremap <Leader>` <esc>viw<esc>a><esc>hbi<<esc>lela 
 inoremap <Leader>( <esc>viw<esc>a)<esc>hbi(<esc>lela 
 inoremap <Leader>{ <esc>viw<esc>a}<esc>hbi{<esc>lela 
 inoremap <Leader>[ <esc>viw<esc>a]<esc>hbi[<esc>lela 
@@ -131,8 +133,7 @@ Plugin 'vim-scripts/DrawIt'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'derekwyatt/vim-protodef'
-"Plugin 'scrooloose/nerdtree'
-Plugin 'TonyCode2012/nerdtree'
+Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'sjl/gundo.vim'
