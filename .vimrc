@@ -32,6 +32,7 @@ set wildmenu
 vnoremap <Leader>y "+y
 vnoremap <Leader>e <Esc>
 inoremap <Leader>e <Esc>
+inoremap <Leader>w <Esc>:w<CR>
 nmap <Leader>p "+p
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
@@ -65,6 +66,13 @@ inoremap <Leader>( <esc>viw<esc>a)<esc>hbi(<esc>lela
 inoremap <Leader>{ <esc>viw<esc>a}<esc>hbi{<esc>lela 
 inoremap <Leader>[ <esc>viw<esc>a]<esc>hbi[<esc>lela 
 inoremap <Leader>< <esc>viw<esc>a><esc>hbi<<esc>lela 
+" add "" '' () {} [] <> at selected word without <Leader>
+inoremap " ""<esc>i
+inoremap ' ''<esc>i 
+inoremap ( ()<esc>i
+inoremap { {}<esc>i
+inoremap [ []<esc>i
+inoremap < <><esc>i
 " resize window
 nnoremap < :vertical resize +3<cr>
 nnoremap > :vertical resize -3<cr>
@@ -85,7 +93,7 @@ inoremap <Leader>pp <esc>pi
 "auto command{{{
 augroup FreshVimrc
     autocmd!
-    autocmd BufWritePost ~/.vimrc source ~/.vimrc
+    autocmd BufWritePost ~/.zvimrc source ~/.zvimrc
 augroup END
 " In this part we open the indicated file's directory in nerdtree window
 " instead of the current dir.But if there is no indicated file, we'll open
@@ -98,8 +106,8 @@ augroup EnterVim
     "autocmd VimEnter * call AccentDemo()
     autocmd FileWritePost * TlistUpdate
     "autocmd BufRead * Autoread 3
-    autocmd VimLeave * :!cp ~/.vimrc ~/.vimrc.bak
-    autocmd VimLeave * :!rm -rf ~/.vimrc
+    "autocmd VimLeave * :!cp ~/.vimrc ~/.vimrc.bak
+    "autocmd VimLeave * :!rm -rf ~/.vimrc
 augroup END
 "}}}auto command end
 
@@ -260,7 +268,6 @@ nnoremap <Leader>sh *
 nnoremap <Leader>su :execute "/".expand("<cWORD>")<CR> 
 nnoremap <Leader>sp :CtrlSF<CR>
 nnoremap <Leader>ss :Ag! <cword> '%:p:h'<CR>
-
 function! Replace(confirm, wholeword, replace)
     wa
     let flag = ''
