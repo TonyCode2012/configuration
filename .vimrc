@@ -31,6 +31,7 @@ set wildmenu
 vnoremap <Leader>y "+y
 vnoremap <Leader>e <Esc>
 inoremap <Leader>e <Esc>
+inoremap <Leader>w <Esc>:w<CR>
 nmap <Leader>p "+p
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
@@ -51,6 +52,7 @@ nnoremap <Leader>k <C-b>
 " add "" '' () {} [] <> at selected word in normal mode
 nnoremap <Leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <Leader>' viw<esc>a'<esc>hbi'<esc>lel
+nnoremap <Leader>` viw<esc>a><esc>hbi<<esc>lel
 nnoremap <Leader>( viw<esc>a)<esc>hbi(<esc>lel
 nnoremap <Leader>{ viw<esc>a}<esc>hbi{<esc>lel
 nnoremap <Leader>[ viw<esc>a]<esc>hbi[<esc>lel
@@ -58,10 +60,18 @@ nnoremap <Leader>< viw<esc>a><esc>hbi<<esc>lel
 " add "" '' () {} [] <> at selected word in insert mode
 inoremap <Leader>" <esc>viw<esc>a"<esc>hbi"<esc>lela 
 inoremap <Leader>' <esc>viw<esc>a'<esc>hbi'<esc>lela 
+inoremap <Leader>` <esc>viw<esc>a><esc>hbi<<esc>lela 
 inoremap <Leader>( <esc>viw<esc>a)<esc>hbi(<esc>lela 
 inoremap <Leader>{ <esc>viw<esc>a}<esc>hbi{<esc>lela 
 inoremap <Leader>[ <esc>viw<esc>a]<esc>hbi[<esc>lela 
 inoremap <Leader>< <esc>viw<esc>a><esc>hbi<<esc>lela 
+" add "" '' () {} [] <> at selected word without <Leader>
+inoremap " ""<esc>i
+inoremap ' ''<esc>i 
+inoremap ( ()<esc>i
+inoremap { {}<esc>i
+inoremap [ []<esc>i
+inoremap < <><esc>i
 " resize window
 nnoremap < :vertical resize +3<cr>
 nnoremap > :vertical resize -3<cr>
@@ -82,7 +92,7 @@ inoremap <Leader>pp <esc>pi
 "auto command{{{
 augroup FreshVimrc
     autocmd!
-    autocmd BufWritePost ~/.vimrc source ~/.vimrc
+    autocmd BufWritePost ~/.zvimrc source ~/.zvimrc
 augroup END
 " In this part we open the indicated file's directory in nerdtree window
 " instead of the current dir.But if there is no indicated file, we'll open
@@ -95,8 +105,8 @@ augroup EnterVim
     "autocmd VimEnter * call AccentDemo()
     autocmd FileWritePost * TlistUpdate
     "autocmd BufRead * Autoread 3
-    autocmd VimLeave * :!cp ~/.vimrc ~/.vimrc.bak
-    autocmd VimLeave * :!rm -rf ~/.vimrc
+    "autocmd VimLeave * :!cp ~/.vimrc ~/.vimrc.bak
+    "autocmd VimLeave * :!rm -rf ~/.vimrc
 augroup END
 "}}}auto command end
 
@@ -128,9 +138,10 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'SirVer/ultisnips'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'derekwyatt/vim-protodef'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
+Plugin 'TonyCode2012/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'sjl/gundo.vim'
@@ -246,7 +257,6 @@ nnoremap <Leader>sh *
 nnoremap <Leader>su :execute "/".expand("<cWORD>")<CR> 
 nnoremap <Leader>sp :CtrlSF<CR>
 nnoremap <Leader>ss :Ag! <cword> '%:p:h'<CR>
-
 function! Replace(confirm, wholeword, replace)
     wa
     let flag = ''
