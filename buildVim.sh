@@ -1,4 +1,26 @@
 #!/bin/bash
+verbose()
+{
+    local type=$1
+    local info=$2
+    local tips=$3
+    local color=$GREEN
+    local time=`date "+%Y/%m/%d %T.%3N"`
+    if [ x"$type" = x"ERROR" ]; then
+        echo -e "${HRED}$time [$type] $info${NC}" >&2 
+        return
+    fi
+    if [ x"$tips" != x"" ]; then color=$HGREEN; fi
+    echo -e "${color}$time [$type] $info${NC}"
+}
+
+############### MAIN BODY ###############
+
+RED='\033[0;31m'
+HRED='\033[1;31m'
+GREEN='\033[0;32m'
+HGREEN='\033[1;32m'
+NC='\033[0m'
 
 echo "[INFO] Installing vim..."
 sudo apt install vim
