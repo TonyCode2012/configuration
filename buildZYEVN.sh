@@ -1,5 +1,5 @@
 #!/bin/bash
-verbose()
+function verbose()
 {
     local type=$1
     local info=$2
@@ -9,14 +9,10 @@ verbose()
 
     [[ x"$tips" != x"" ]] && tips="H"
     case $type in
-        ERROR)
-            color=${tips}RED ;;
-        WARN)
-            color=${tips}YELLOW ;;
-        INFO)
-            color=${tips}GREEN ;;
+        ERROR) eval color=\$${tips}RED ;;
+        WARN) eval color=\$${tips}YELLOW ;;
+        INFO) eval color=\$${tips}GREEN ;;
     esac
-    eval color=\$$color
     echo -e "${color}$time [$type] $info${NC}"
 }
 
@@ -31,9 +27,9 @@ function installSIMAPP()
     return 0
 }
 
-function installVIM()
+function installZVIM()
 {
-    verbose INFO "Installing vim..."
+    verbose INFO "Installing zvim..."
     local makefailed=false
     local vimdir=~/tools/vim
     if [ ! -e "$pyconfdir" ]; then
@@ -88,6 +84,25 @@ function installVIM()
             echo " done."
         fi
     done
+
+    verbose INFO "Installing ctags..."
+    installsimapp "ctags"
+
+    verbose INFO "Installing ag..."
+    installSIMAPP "silversearcher-ag"
+}
+
+function installTMUX()
+{
+    verbose INFO "Installing tmux..."
+    installSIMAPP "tmux"
+    
+    verbose INFO "Downloading tmux configure..."
+    local tmuxFile=~/.tmux.conf
+    if [ -e "$tmuxFile" ]; then
+        rm $tmuxFile
+    fi
+    wget -P ~/ https://raw.githubusercontent.com/TonyCode2012/configuration/master/.tmux.conf
 }
 
 ############### MAIN BODY ###############
@@ -111,22 +126,10 @@ if [ ! -e "$bundledir" ]; then
 fi
 
 ### vim related
-installVIM
+installZVIM
 
-### tmux related {{{
-verbose INFO "Installing tmux..."
-installSIMAPP "tmux"
-
-verbose INFO "Downloading tmux configure..."
-tmuxFile=~/.tmux.conf
-if [ -e "$tmuxFile" ]; then
-    rm $tmuxFile
-fi
-wget https://raw.githubusercontent.com/TonyCode2012/configuration/master/.tmux.conf
-
-verbose INFO "Installing ag..."
-installSIMAPP "silversearcher-ag"
-### }}}
+### tmux related
+installTMUX
 
 ### add zvim to alias {{{
 verbose INFO "Adding alias in .bashrc..."
