@@ -72,6 +72,10 @@ inoremap ( ()<esc>i
 inoremap { {}<esc>i
 inoremap [ []<esc>i
 inoremap < <><esc>i
+" auto complete () {} []
+inoremap {<cr> {<cr>}<esc>k$a<cr>
+inoremap (<cr> (<cr>)<esc>k$a<cr>
+inoremap [<cr> [<cr>]<esc>k$a<cr>
 " resize window
 nnoremap < :vertical resize +3<cr>
 nnoremap > :vertical resize -3<cr>
@@ -90,6 +94,7 @@ inoremap <Leader>pp <esc>pi
 "}}}basic end
 
 "auto command{{{
+au BufNewFile,BufRead *.wxml set filetype=html
 augroup FreshVimrc
     autocmd!
     autocmd BufWritePost ~/.zvimrc source ~/.zvimrc
@@ -155,6 +160,9 @@ Plugin 'will133/vim-dirdiff'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+Plugin 'iamcco/markdown-preview.vim'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'vim-scripts/cmd.vim'
 "Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'tpope/vim-surround'
 call vundle#end()
@@ -175,6 +183,9 @@ let g:multi_cursor_prev_key='<M-p>'
 let g:multi_cursor_skip_key='<M-k>'
 let g:multi_cursor_quit_key='<Esc>'
 
+" mark down
+let g:mkdp_path_to_chrome="/usr/bin/google-chrome-stable"
+
 " jump betwwn .h and .c files
 "nnoremap <Leader>h :A<CR>
 
@@ -182,6 +193,13 @@ let g:multi_cursor_quit_key='<Esc>'
 nnoremap <Leader>o :NERDTreeToggle<CR>
 " hide/show MiniBufExploer
 map <Leader>bl :MBEToggle<cr>
+" tab relation
+nnoremap <Leader>tn :tabc<cr>
+nnoremap <Leader>tc :tabc<cr>
+nnoremap <Leader>to :tabo<cr>
+nnoremap <Leader>ts :tabs<cr>
+nnoremap <Leader>tp :tabp<cr>
+nnoremap <Leader>tn :tabp<cr>
 " buffer switch
 "map <c-tab> :MBEbn<cr>
 "map <c-s-tab> :MBEbp<cr>
@@ -299,6 +317,10 @@ let g:ycm_seed_identifiers_with_syntax=1
 " use OmniCppComplete function 
 let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"]
 set tags+=/ws/yaoz/tools/stdcpp.tags
+
+" use neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_auto_select = 1
 
 "}}}plugin configuration end
 
